@@ -2,11 +2,15 @@ package br.dao.hb;
 
 import java.util.List;
 
+import org.hibernate.Session;
+
 import br.univel.Contato;
 import br.univel.dao.ContatoDaoIF;
 
 public class ContatoDaoHibernate implements ContatoDaoIF {
 
+	Session session = HibernateUtil.getSessionFactory().openSession();
+	
 	@Override
 	public List<Contato> getTodos() {
 		// TODO Auto-generated method stub
