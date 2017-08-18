@@ -7,9 +7,11 @@ import java.sql.Connection;
 import java.util.List;
 import java.util.Locale;
 
-import br.univel.ConexaoDB;
+import br.dao.jdbc.ConexaoDB;
+import br.dao.jdbc.ContatoDaoJDBC;
 import br.univel.Contato;
-import br.univel.ContatoDao;
+import br.univel.dao.ContatoDaoFactory;
+import br.univel.dao.ContatoDaoIF;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -41,7 +43,7 @@ public class Comum {
 			e.printStackTrace();
 		}
 		
-		ContatoDao dao = new ContatoDao();
+		ContatoDaoIF dao = ContatoDaoFactory.criar();
 		List<Contato> lista = dao.getTodos();
 		lista.forEach(System.out::println);
 		

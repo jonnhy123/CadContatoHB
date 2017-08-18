@@ -10,6 +10,10 @@ import java.util.List;
 
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
+
+import br.univel.dao.ContatoDaoFactory;
+import br.univel.dao.ContatoDaoIF;
+
 import javax.swing.UnsupportedLookAndFeelException;
 
 public class TelaPrincipal extends TelaPrincipalBase {
@@ -54,7 +58,7 @@ public class TelaPrincipal extends TelaPrincipalBase {
 
 	private void configuraTabela() {
 		
-		ContatoDao dao = new ContatoDao();
+		ContatoDaoIF dao = ContatoDaoFactory.criar();
 		List<Contato> lista = dao.getTodos();
 		
 		this.modelo = new ContatoModel(lista);

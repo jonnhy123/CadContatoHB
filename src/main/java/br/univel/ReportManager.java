@@ -9,6 +9,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import br.dao.jdbc.ConexaoDB;
+import br.univel.dao.ContatoDaoFactory;
+import br.univel.dao.ContatoDaoIF;
 import br.univel.reports.custom.CustomContatoReport;
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JRException;
@@ -61,7 +64,7 @@ public class ReportManager {
 				+ "JaspersoftWorkspace\\MyReports"
 				+ "\\CustomFields.jasper";
 		
-		ContatoDao dao = new ContatoDao();
+		ContatoDaoIF dao = ContatoDaoFactory.criar();
 		List<Contato> lista = dao.getTodos();
 		
 		JRDataSource customDs = new CustomContatoReport(lista);

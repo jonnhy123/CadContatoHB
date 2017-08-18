@@ -6,10 +6,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
 
+import br.dao.jdbc.ContatoDaoJDBC;
 import br.univel.Contato;
-import br.univel.ContatoDao;
 import br.univel.ContatoModel;
 import br.univel.ReportManager;
+import br.univel.dao.ContatoDaoFactory;
+import br.univel.dao.ContatoDaoIF;
 
 public class PainelContato extends PainelContatoBase {
 	private Contato contatoSelecionado;
@@ -47,7 +49,7 @@ public class PainelContato extends PainelContatoBase {
 
 	private void configuraTabela() {
 		
-		ContatoDao dao = new ContatoDao();
+		ContatoDaoIF dao = ContatoDaoFactory.criar();
 		List<Contato> lista = dao.getTodos();
 		
 		this.modelo = new ContatoModel(lista);

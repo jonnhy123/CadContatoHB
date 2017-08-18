@@ -1,4 +1,4 @@
-package br.univel;
+package br.dao.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
